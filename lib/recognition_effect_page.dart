@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sanning_effect/recognition_dot.dart';
+import 'package:scanning_effect/recognition_dot.dart';
 
 class RecognitionEffectPage extends StatefulWidget {
   const RecognitionEffectPage({Key? key}) : super(key: key);

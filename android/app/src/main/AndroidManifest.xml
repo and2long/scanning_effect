@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sanning_effect">
+    package="com.example.scanning_effect">
    <application
-        android:label="sanning_effect"
+        android:label="scanning_effect"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-package com.example.sanning_effect
+package com.example.scanning_effect
 
 import io.flutter.embedding.android.FlutterActivity
 

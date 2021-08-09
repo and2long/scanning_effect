@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sanning_effect/recognition_effect_page.dart';
-import 'package:sanning_effect/scanning_effect_page.dart';
+import 'package:scanning_effect/recognition_effect_page.dart';
+import 'package:scanning_effect/scanning_effect_page.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,6 +1,6 @@
 {
-    "name": "sanning_effect",
-    "short_name": "sanning_effect",
+    "name": "scanning_effect",
+    "short_name": "scanning_effect",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
