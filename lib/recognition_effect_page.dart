@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -12,32 +13,41 @@ class RecognitionEffectPage extends StatefulWidget {
 
 class _RecognitionEffectPageState extends State<RecognitionEffectPage>
     with SingleTickerProviderStateMixin {
-  late final AnimationController controller;
+  late final AnimationController _controller;
   late final Animation<double> animation;
 
   bool _show = true;
+  late Timer _timer;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: const Duration(milliseconds: 500), vsync: this);
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 800), vsync: this);
     animation =
         Tween(begin: CustomDot.minBorderRadius, end: CustomDot.maxBorderRadius)
-            .animate(controller)
+            .animate(_controller)
               ..addStatusListener((status) {
                 if (status == AnimationStatus.completed) {
                   setState(() {
                     _show = false;
+                    _controller.reset();
                   });
                 }
               });
-    controller.forward();
+    _controller.forward();
+    _timer = Timer.periodic(Duration(milliseconds: 1500), (timer) {
+      setState(() {
+        _show = true;
+        _controller.forward();
+      });
+    });
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
+    _timer.cancel();
     super.dispose();
   }
 

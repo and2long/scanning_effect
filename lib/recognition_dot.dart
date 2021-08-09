@@ -50,8 +50,11 @@ class CustomDot extends CustomPainter {
   /// 显示位置
   List<Offset> offsetList;
 
+  /// 画笔宽度
+  final double strokeWidth = 0.5;
+
   /// 中心圆点半径
-  static final double dotRadius = 2.5;
+  final double dotRadius = 2.0;
 
   /// 边框取值范围
   static final double minBorderRadius = 3.0;
@@ -65,21 +68,19 @@ class CustomDot extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     _paint
-      ..color = Colors.white
+      ..color = Color.fromARGB(
+          ((maxBorderRadius - borderRadius) / maxBorderRadius * 255).toInt(),
+          255,
+          255,
+          255)
       ..style = PaintingStyle.fill
-      ..strokeWidth = 1;
+      ..strokeWidth = strokeWidth;
     offsetList.forEach((element) {
       canvas.drawOval(
           Rect.fromCircle(center: element, radius: dotRadius), _paint);
     });
 
-    _paint
-      ..style = PaintingStyle.stroke
-      ..color = Color.fromARGB(
-          ((maxBorderRadius - borderRadius) / maxBorderRadius * 255).toInt(),
-          255,
-          255,
-          255);
+    _paint..style = PaintingStyle.stroke;
     offsetList.forEach((element) {
       canvas.drawCircle(element, borderRadius, _paint);
     });
