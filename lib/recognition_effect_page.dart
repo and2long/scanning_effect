@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:scanning_effect/recognition_dot.dart';
+import 'package:scanning_effect/components/recognition_dot.dart';
 
 class RecognitionEffectPage extends StatefulWidget {
   const RecognitionEffectPage({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class _RecognitionEffectPageState extends State<RecognitionEffectPage>
     _controller = AnimationController(
         duration: const Duration(milliseconds: 800), vsync: this);
     animation =
-        Tween(begin: CustomDot.minBorderRadius, end: CustomDot.maxBorderRadius)
+        Tween(begin: CustomDotSet.minBorderRadius, end: CustomDotSet.maxBorderRadius)
             .animate(_controller)
               ..addStatusListener((status) {
                 if (status == AnimationStatus.completed) {
@@ -76,7 +76,7 @@ class _RecognitionEffectPageState extends State<RecognitionEffectPage>
   @override
   Widget build(BuildContext context) {
     return _show
-        ? RecognitionDot(
+        ? RecognitionDotSet(
             offsetList: _generateData(),
             animation: animation,
           )

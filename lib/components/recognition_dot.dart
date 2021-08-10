@@ -1,32 +1,36 @@
 import 'package:flutter/material.dart';
 
-/// 识别点
-class RecognitionDot extends StatefulWidget {
+/// 识别点集合
+class RecognitionDotSet extends StatefulWidget {
+  /// 点位置列表
   final List<Offset> offsetList;
+
+  /// 动画
   final Animation<double> animation;
 
-  const RecognitionDot({
+  const RecognitionDotSet({
     Key? key,
     required this.offsetList,
     required this.animation,
   }) : super(key: key);
 
   @override
-  _RecognitionDotState createState() => _RecognitionDotState();
+  _RecognitionDotSetState createState() => _RecognitionDotSetState();
 }
 
-class _RecognitionDotState extends State<RecognitionDot> {
+class _RecognitionDotSetState extends State<RecognitionDotSet> {
   @override
   Widget build(BuildContext context) {
-    return AnimatedDot(
+    return AnimatedDotSet(
         offsetList: widget.offsetList, animation: widget.animation);
   }
 }
 
-class AnimatedDot extends AnimatedWidget {
+/// 点集合设置动画
+class AnimatedDotSet extends AnimatedWidget {
   final List<Offset> offsetList;
 
-  AnimatedDot({
+  AnimatedDotSet({
     Key? key,
     required this.offsetList,
     required Animation<double> animation,
@@ -35,13 +39,13 @@ class AnimatedDot extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: CustomDot((listenable as Animation).value, offsetList),
+      painter: CustomDotSet((listenable as Animation).value, offsetList),
     );
   }
 }
 
-/// 自定义点
-class CustomDot extends CustomPainter {
+/// 自定义点集合
+class CustomDotSet extends CustomPainter {
   Paint _paint = Paint();
 
   /// 边框半径
@@ -60,7 +64,7 @@ class CustomDot extends CustomPainter {
   static final double minBorderRadius = 3.0;
   static final double maxBorderRadius = 12.0;
 
-  CustomDot(this.borderRadius, this.offsetList)
+  CustomDotSet(this.borderRadius, this.offsetList)
       : assert(offsetList.isNotEmpty),
         assert(
             borderRadius >= minBorderRadius && borderRadius <= maxBorderRadius);

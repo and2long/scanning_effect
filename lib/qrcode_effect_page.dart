@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ScanningEffectPage extends StatelessWidget {
-  const ScanningEffectPage({Key? key}) : super(key: key);
+class QRCodeEffectPage extends StatelessWidget {
+  const QRCodeEffectPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text('Scanning Effect'),
+        child: Text('QRCode Effect'),
       ),
     );
   }

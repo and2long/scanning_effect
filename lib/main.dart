@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scanning_effect/recognition_effect_page.dart';
-import 'package:scanning_effect/scanning_effect_page.dart';
+import 'package:scanning_effect/qrcode_effect_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +27,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _tabIndex = 0;
   final _pageController = PageController();
-  List<String> _titles = ['Scanning', 'Recognition'];
+  List<String> _titles = ['QRCode', 'Recognition'];
   List<IconData> _icons = [Icons.scanner, Icons.recommend_sharp];
 
   @override
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         children: [
-          ScanningEffectPage(),
+          QRCodeEffectPage(),
           RecognitionEffectPage(),
         ],
         controller: _pageController,
