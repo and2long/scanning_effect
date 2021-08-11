@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   int _tabIndex = 0;
   final _pageController = PageController();
   List<String> _titles = ['QRCode', 'Recognition'];
-  List<IconData> _icons = [Icons.scanner, Icons.recommend_sharp];
+  List<IconData> _icons = [Icons.crop_free, Icons.adjust];
 
   @override
   void dispose() {
