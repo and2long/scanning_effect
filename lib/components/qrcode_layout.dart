@@ -29,13 +29,13 @@ class QRCodeBorderPainter extends CustomPainter {
     ..isAntiAlias = true
     ..strokeWidth = 5;
 
-  double angleWidth = 50;
+  double angleWidth = 30;
 
   @override
   void paint(Canvas canvas, Size size) {
     // 左上角
-    canvas.drawLine(Offset(0, 0), Offset(0, 50), _paint);
-    canvas.drawLine(Offset(0, 0), Offset(50, 0), _paint);
+    canvas.drawLine(Offset(0, 0), Offset(0, angleWidth), _paint);
+    canvas.drawLine(Offset(0, 0), Offset(angleWidth, 0), _paint);
     // 右上角
     canvas.drawLine(
         Offset(size.width - angleWidth, 0), Offset(size.width, 0), _paint);
@@ -68,12 +68,12 @@ class QRCodeScannerPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    print('size: $size');
-    canvas.drawLine(Offset(0, 100), Offset(size.width, 100), _paint);
-    Path path = Path();
-    path.moveTo(0, 100);
-    path.conicTo(size.width / 2, 50, size.width, 100, 1);
-    canvas.drawPath(path, _paint);
+    canvas.drawLine(
+        Offset(0, size.width / 2), Offset(size.width, size.width / 2), _paint);
+    // Path path = Path();
+    // path.moveTo(0, 100);
+    // path.conicTo(size.width / 2, 50, size.width, 100, 1);
+    // canvas.drawPath(path, _paint);
   }
 
   @override
