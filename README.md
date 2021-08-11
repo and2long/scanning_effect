@@ -2,9 +2,7 @@
 
 自定义相机扫描动画。
 
-二维码 | 识物
---- | ---
-![](arts/scanning.gif) | ![](arts/recognition.gif)
+## :camera_flash: Screenshots
 
+<img src="/arts/scanning.gif" width="260">&emsp;<img src="/arts/recognition.gif" width="260">
 
-# 配置参数
