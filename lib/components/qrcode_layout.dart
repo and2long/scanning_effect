@@ -20,7 +20,7 @@ class QRCodeLayout extends StatefulWidget {
   final double? scannerWidth;
 
   /// 动画时长，默认 1500 毫秒
-  final int animationDuration;
+  final int? animationDuration;
 
   const QRCodeLayout({
     Key? key,
@@ -30,7 +30,7 @@ class QRCodeLayout extends StatefulWidget {
     this.borderWidth,
     this.showBorder,
     this.scannerWidth,
-    this.animationDuration = 1500,
+    this.animationDuration,
   }) : super(key: key);
 
   @override
@@ -46,7 +46,7 @@ class _QRCodeLayoutState extends State<QRCodeLayout>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        duration: Duration(milliseconds: widget.animationDuration),
+        duration: Duration(milliseconds: widget.animationDuration ?? 1500),
         vsync: this);
     _animation =
         Tween(begin: 0.0, end: widget.size.height).animate(_controller);
@@ -111,7 +111,10 @@ class AnimatedQRCodeScanner extends AnimatedWidget {
         borderWidth: borderWidth,
         showBorder: showBorder,
       ),
-      foregroundPainter: QRCodeScannerPainter((listenable as Animation).value),
+      foregroundPainter: QRCodeScannerPainter(
+        (listenable as Animation).value,
+        scannerWidth,
+      ),
     );
   }
 }
@@ -190,17 +193,16 @@ class QRCodeBorderPainter extends CustomPainter {
 
 /// 中间扫描器
 class QRCodeScannerPainter extends CustomPainter {
-  Paint _paint = Paint()
-    ..color = Colors.green
-    ..style = PaintingStyle.fill
-    ..strokeWidth = 2;
+  Paint _paint = Paint()..color = Colors.green;
 
   final double yOffset;
+  final double? lineWidth;
 
-  QRCodeScannerPainter(this.yOffset) : assert(yOffset >= 0);
+  QRCodeScannerPainter(this.yOffset, this.lineWidth) : assert(yOffset >= 0);
 
   @override
   void paint(Canvas canvas, Size size) {
+    _paint..strokeWidth = (lineWidth ?? 2);
     canvas.drawLine(Offset(0, yOffset), Offset(size.width, yOffset), _paint);
     // Path path = Path();
     // path.moveTo(0, 100);
