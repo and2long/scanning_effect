@@ -8,8 +8,19 @@ class QRCodeEffectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        child: QRCodeLayout(size: Size(300, 300)),
-        color: Colors.grey,
+        child: QRCodeLayout(
+          // 设置扫描框的大小
+          size: Size(300, 300),
+          // 直角长度
+          angleLength: 30,
+          // 直角线粗细
+          angleWidth: 5,
+          // 边框宽度
+          borderWidth: 0.5,
+          // 是否显示边框
+          showBorder: true,
+        ),
+        color: Colors.transparent,
       ),
     );
   }
