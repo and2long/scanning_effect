@@ -1,6 +1,10 @@
 # scanning_effect
-自定义动画：相机扫描效果。
+
+自定义相机扫描动画。
 
 二维码 | 识物
 --- | ---
-![](arts/recognition.gif) | ![](arts/recognition.gif)
+![](arts/scanning.gif) | ![](arts/recognition.gif)
+
+
+# 配置参数
