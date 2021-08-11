@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scanning_effect/recognition_effect_page.dart';
-import 'package:scanning_effect/qrcode_effect_page.dart';
+import 'package:scanning_effect/pages/qrcode_effect_page.dart';
+import 'package:scanning_effect/pages/recognition_effect_page.dart';
 
 void main() {
   runApp(MyApp());
